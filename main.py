@@ -85,6 +85,7 @@ def choosing_an_ally():
 
     for fri in ally:
         print '%d. %s' % (item_choice + 1, fri['name'])
+#+1 because indexing starts from 0
         item_choice = item_choice + 1
 
     ally_selection = raw_input('Choose from your fellow spies')
@@ -93,9 +94,9 @@ def choosing_an_ally():
         return ally_selection
 
 
-
+#sending message to an ally by creating the function
 def send_message():
-
+#selecting the friend to whom the message is meant to be sent in the form of secret picture
     ally_choice = choosing_an_ally()
     ally_choice_position = int(ally_choice) - 1
 
@@ -118,7 +119,7 @@ def send_message():
         ally[ally_choice]['chats'].append(new_chat)
 
         print "Your secret message image is ready!"
-
+#creating function to read the message send by the friend
 def read_message():
 
     sender = choosing_an_ally()
@@ -137,7 +138,7 @@ def read_message():
 
     print "Your secret message has been saved!"
 
-
+#creating the function to read chat history
 def read_chat_history():
 
     ally_name = choosing_an_ally()
@@ -150,7 +151,7 @@ def read_chat_history():
                colored(ally[ally_name]['name'] +" said" ,"red")
            print chat['message']
 
-
+#making the function to start chat with the selected ally
 def start_chat_app(spy):
 
     current_status_msg = None
@@ -173,7 +174,7 @@ def start_chat_app(spy):
         show_menu = True
 
         while show_menu:
-
+#a menu is created that consists of various choices
             menu_options = "What do you want to do?\n" \
                            "1. Add a status update\n" \
                            "2. Add a friend \n" \
@@ -216,9 +217,9 @@ elif user_existence.upper() == "N":
         'rating' : 0.0,
         'is_online' : False
     }
-
+#concatenating spyname with salutation
     spy['name'] = raw_input("Welcome to spy chat, you must tell me your spy name first: ")
-
+#check if spy name is valid or not
     if len(spy['name']) > 0:
         spy['salutation'] = raw_input("Should I call you Mr. or Ms.?: ")
 
